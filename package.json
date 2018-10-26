@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/earlhamcollege/ec-page-hero-widgets/issues"
   },
-  "homepage": "https://github.com/earlhamcollege/ec-page-hero-widgets#readme"
+  "homepage": "https://github.com/earlhamcollege/ec-page-hero-widgets#readme",
+  "dependencies": {
+    "slick-carousel": "^1.8.1"
+  }
 }
