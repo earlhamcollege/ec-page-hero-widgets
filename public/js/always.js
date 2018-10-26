@@ -18,7 +18,9 @@ apos.define('ec-page-hero-widgets', {
         fullWidth = options.fullWidth;    
       }
 
-      $widget.find("[data-ec-page-hero-"+data._id+"]").slick({
+      $widget.find("[data-ec-page-hero-"+instance+"]").css('max-height',data.config.heroHeight+ 'px');
+
+      $widget.find("[data-ec-page-hero-"+instance+"]").slick({
         dots: true,
         infinite: true,
         speed: 500,

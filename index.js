@@ -1,6 +1,7 @@
 module.exports = {        
   extend: 'apostrophe-widgets',        
-  label: 'EC Page Hero',        
+  label: 'EC Page Hero',
+  contextual: false,        
   beforeConstruct: function(self, options) {
 		options.addFields = [
 			{
@@ -18,8 +19,36 @@ module.exports = {
 				label: 'Hero Video',
 				type: 'singleton',
 				widgetType: 'apostrophe-video'
+			},
+			{
+				name: 'test',
+				label: 'test',
+				type: 'string'
+			},
+			{
+				name: 'config',
+				label: 'Configuration',
+				type: 'object',
+				schema: [
+					{
+				      name: 'heroHeight',
+				      label: 'Hero Height',
+						type: 'range',
+						min: 200,
+  						max: 500,
+  						step: 100,
+  						def: 400
+				    }
+				  ]
 			}
     	].concat(options.addFields || [])
+    	options.arrangeFields = [
+			 {
+		      name:'Configuration',
+		      label:'Configuration',
+		      fields: ['config']
+		    },
+    	].concat(options.arrangeFields || [])
 	},
 	construct: function(self, options) {
 
