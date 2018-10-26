@@ -1,0 +1,18 @@
+{% set heroItems = "" %}
+
+{% if data.widget.heroImages != "" %}
+	{% set heroItems = apos.images.all(data.widget.heroImages) %}
+{% else %}
+	{% set heroItems = data.widget.heroVideo %}
+{% endif %}
+
+<div data-ec-page-hero data-ec-page-hero-{{data.widget._id}} data-background-color="#000">
+	{% for hero in heroItems %}
+		<div>
+			<div class="focal-point" style="{% if apos.attachments.hasFocalPoint(hero) %}
+      background-position: {{ apos.attachments.focalPointToBackgroundPosition(hero) }};
+    {%- endif -%}
+    background-image: url({{ apos.attachments.url(hero, { size: 'full' }) }})"></div>
+		</div>
+	{% endfor %}
+</div>
