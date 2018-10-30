@@ -21,11 +21,6 @@ module.exports = {
 				widgetType: 'apostrophe-video'
 			},
 			{
-				name: 'test',
-				label: 'test',
-				type: 'string'
-			},
-			{
 				name: 'config',
 				label: 'Configuration',
 				type: 'object',
@@ -38,6 +33,23 @@ module.exports = {
   						max: 500,
   						step: 100,
   						def: 400
+				    },
+				    {
+				      name: 'speed',
+				      label: 'Carousel Speed',
+						type: 'range',
+						min: 100,
+  						max: 1000,
+  						step: 100,
+  						def: 300,
+  						help: 'This setting may get overwritten by a global setting'
+				    },
+				    {
+				      name: 'dots',
+				      label: 'Display Dots',
+						type: 'boolean',
+  						def: false,
+  						help: 'This setting may get overwritten by a global setting'
 				    }
 				  ]
 			}
