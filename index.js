@@ -26,6 +26,27 @@ module.exports = {
 				type: 'string'
 			},
 			{
+				name: 'backgroundSize',
+				label: 'Background Image Display',
+				type: 'select',
+				choices: [
+
+					{
+						label: 'Cover',
+						value: 'cover'
+					},
+					{
+						label: 'Contain',
+						value: 'contain'
+					},
+					{
+						label: 'Percentage',
+						value: 'percent',
+						showFields: ['overlaySize']
+					}
+				]
+			},
+			{
 				name: 'imageOverlay',
 				label: 'Image Overlay',
 				type: 'attachment',
@@ -83,7 +104,7 @@ module.exports = {
 					{
 						label: 'Image Overlay',
 						value: 'image-overlay',
-						showFields: ['imageOverlay','overlaySize']
+						showFields: ['imageOverlay','backgroundSize']
 					}
 				],
 				def: 'page-title'
@@ -143,7 +164,7 @@ module.exports = {
 		    {
 		    	name: 'overlay',
 		    	label: 'Overlay',
-		    	fields: ['selectOverlay','customTitle','imageOverlay','overlaySize']
+		    	fields: ['selectOverlay','customTitle','imageOverlay','backgroundSize','overlaySize']
 		    }
     	].concat(options.arrangeFields || [])
 	},

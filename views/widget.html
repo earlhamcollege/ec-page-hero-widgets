@@ -36,8 +36,13 @@ data-slick='{"dots": {{dots | dump}},"speed": "{{speed}}"}'>
 
 					{% if data.widget.selectOverlay == "image-overlay" %}
 						
-								<div class="focal-point" style="background-image: url({{ apos.attachments.url(data.widget.imageOverlay, { size: 'full' }) }}); background-position: center; background-repeat: no-repeat; background-size: {{data.widget.overlaySize + '%' or 'cover'}}"></div>
-							{% endif %}
+								<div class="focal-point" style="background-image: url({{ apos.attachments.url(data.widget.imageOverlay, { size: 'full' }) }}); background-position: center; background-repeat: no-repeat; 
+							{% if data.widget.backgroundSize == "percent" %}
+									background-size: {{data.widget.overlaySize + '%'}};
+							{% else %}
+									background-size: {{data.widget.backgroundSize}};
+							{% endif %}"></div>
+				  {% endif %}
 							        </div>
 							    </div>
 
