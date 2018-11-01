@@ -1,8 +1,9 @@
 {% set heroItems = "" %}
 {% set dots = "" %}
 {% set speed = "" %}
+{% set videoId = "" %}
 
-{% if data.widget.heroVideo.items != "" %}
+{% if data.widget.selectMedia == "video" %}
 	{% set heroItems = data.widget.heroVideo.items %}
 {% else %}
 	{% set heroItems = apos.images.all(data.widget.heroImages) %}
@@ -15,34 +16,46 @@
 {% if data.options.dots | dump %}
 	{% set dots = data.options.dots %}
 {% else %}
-	{% set dots = data.widget.config.dots %}
+	{% set dots = data.widget.imageConfig.dots %}
 {% endif %}
 {% if data.options.speed | dump %}
 	{% set speed = data.options.speed %}
 {% else %}
-	{% set speed = data.widget.config.speed %}
+	{% set speed = data.widget.imageConfig.speed %}
 {% endif %}
 <div data-ec-page-hero data-ec-page-hero-{{data.widget._id}} data-background-color='#000' 
 data-slick='{"dots": {{dots | dump}},"speed": "{{speed}}"}'>
+	<div class="overlay">			
+		        <div class="inner">
+		        	{% if data.widget.selectOverlay == 'page-title' %}		
+		            <h1>{{data.page.title|upper}}</h1>
+		            {% endif %}
+		            {% if data.widget.selectOverlay == 'custom-title' %}		
+		            <h1>{{data.widget.customTitle | upper}}</h1>
+		            {% endif %}
+
+					{% if data.widget.selectOverlay == "image-overlay" %}
+						
+								<div class="focal-point" style="background-image: url({{ apos.attachments.url(data.widget.imageOverlay, { size: 'full' }) }}); background-position: center; background-repeat: no-repeat; background-size: {{data.widget.overlaySize + '%' or 'cover'}}"></div>
+							{% endif %}
+							        </div>
+							    </div>
+
 	{% for hero in heroItems %}
 
 		{% if hero.type == "attachment" %}
-		<div>
-			<div class="focal-point" style="{% if apos.attachments.hasFocalPoint(hero) %}
-      background-position: {{ apos.attachments.focalPointToBackgroundPosition(hero) }};
-    {%- endif -%}
-    background-image: url({{ apos.attachments.url(hero, { size: 'full' }) }})"></div>
-		</div>
-		{% endif %}
+		<div class="slide">
+				
+								<div class="focal-point" style="{% if apos.attachments.hasFocalPoint(hero) %}
+					      background-position: {{ apos.attachments.focalPointToBackgroundPosition(hero) }};
+					    {%- endif -%}
+					    background-image: url({{ apos.attachments.url(hero, { size: 'full' }) }})"></div>
+							</div>
+							{% endif %}
 
 		{% if hero.type == "apostrophe-video" %}
-		<div>
+		<div class="slide">
 			<section id="page-banner" class="bg-image" style="background-image: url('http://i.ytimg.com/vi/{{videoId}}/maxresdefault.jpg');">
-		      <div class="overlay">			
-		        <div class="inner">		
-		            <h1>{{data.page.title|upper}}</h1>	
-		        </div>
-		      </div>
 		      <div class="video_wrap" style="display:none"><div id="player"></div></div>
     		</section>
 		</div>

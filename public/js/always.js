@@ -65,6 +65,7 @@ jQuery(function($){
         fade: true,
         cssEase: 'linear',
         autoplay: true,
+        slide: "[data-ec-page-hero-"+instance+"] div.slide"
       });
 
 
