@@ -9,7 +9,7 @@
 	{% set heroItems = apos.images.all(data.widget.heroImages) %}
 {% endif %}
 
-{% if data.widget.heroVideo != "" %}
+{% if data.widget.heroVideo.items[0].video.url %}
 	{% set videoId = data.widget.heroVideo.items[0].video.url.split("v=")[1] %}
 {% endif %}
 {{data.options.dots | dump}}
