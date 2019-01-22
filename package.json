@@ -1,6 +1,6 @@
 {
   "name": "ec-page-hero-widgets",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Apostrophe Widget that makes hero content for each page",
   "main": "index.js",
   "scripts": {
@@ -11,17 +11,9 @@
     "url": "git+https://github.com/earlhamcollege/ec-page-hero-widgets.git"
   },
   "keywords": [
-    "apostrophe-cms",
-    "earlham",
-    "college"
+    "apostrophe-cms"
   ],
   "author": "Brad Wood",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/earlhamcollege/ec-page-hero-widgets/issues"
-  },
-  "homepage": "https://github.com/earlhamcollege/ec-page-hero-widgets#readme",
-  "dependencies": {
-    "slick-carousel": "^1.8.1"
-  }
+  "homepage": "https://github.com/earlhamcollege/ec-page-hero-widgets#readme"
 }
