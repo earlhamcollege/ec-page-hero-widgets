@@ -24,7 +24,7 @@
 	{% set speed = data.widget.imageConfig.speed %}
 {% endif %}
 <div data-ec-page-hero data-ec-page-hero-{{data.widget._id}} data-background-color='#000' 
-data-slick='{"dots": {{dots | dump}},"speed": "{{speed}}"}'>
+data-slick='{"dots": {{dots | dump}},"speed": "{{speed}}"}' data-loading>
 	<div class="overlay">			
 		        <div class="inner">
 		        	{% if data.widget.selectOverlay == 'page-title' %}		

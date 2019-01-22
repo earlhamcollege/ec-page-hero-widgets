@@ -2,10 +2,6 @@ apos.define('ec-page-hero-widgets', {
   extend: 'apostrophe-widgets',
   beforeConstruct: function(self, options){
      self.play = function($widget, data, options) {
-    }
-  },
-  construct: function(self, options) {
-    self.play = function($widget, data, options) {
         // Loads the YouTube IFrame API JavaScript code.
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
@@ -74,5 +70,7 @@ jQuery(function($){
 
       return false;
     };
-  }
+  },
+  construct: function(self, options) {
+   }
 });
