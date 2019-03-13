@@ -24,7 +24,7 @@
 	{% set speed = data.widget.imageConfig.speed %}
 {% endif %}
 <div data-ec-page-hero data-ec-page-hero-{{data.widget._id}} data-background-color='#000' 
-data-slick='{"dots": {{dots | dump}},"speed": "{{speed}}"}' data-loading>
+data-slick='{"dots": {{dots | dump}},"speed": "{{speed}}"}'>
 	<div class="overlay">			
 		        <div class="inner">
 		        	{% if data.widget.selectOverlay == 'page-title' %}		
@@ -60,7 +60,7 @@ data-slick='{"dots": {{dots | dump}},"speed": "{{speed}}"}' data-loading>
 
 		{% if hero.type == "apostrophe-video" %}
 		<div class="slide">
-			<section id="page-banner" class="bg-image" style="background-image: url('http://i.ytimg.com/vi/{{videoId}}/maxresdefault.jpg');">
+			<section id="page-banner" class="bg-image" style="background-image: url('//i.ytimg.com/vi/{{videoId}}/maxresdefault.jpg');">
 		      <div class="video_wrap" style="display:none"><div id="player"></div></div>
     		</section>
 		</div>
@@ -68,52 +68,3 @@ data-slick='{"dots": {{dots | dump}},"speed": "{{speed}}"}' data-loading>
 	{% endfor %}
 </div>
 
-<script>
-
-// Loads the YouTube IFrame API JavaScript code.
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-// Inserts YouTube JS code into the page.
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-var player;
-//https://www.youtube.com/embed/0mg3Rgo0Jno?enablejsapi=1&controls=0&fs=0&iv_load_policy=3&rel=0&showinfo=0&loop=1&playlist=tdwbYGe8pv8&start=102
-// onYouTubeIframeAPIReady() is called when the IFrame API is ready to go.
-function onYouTubeIframeAPIReady() {
-  	player = new YT.Player('player', {
-    	height: '360',
-      width: '640',
-      videoId: '{{videoId}}',
-      playerVars: { 'autohide': 1,'autoplay': 1, 'controls': 0, 'showinfo': 0, 'rel': 0, 'enablejsapi':1, 'wmode' : 'transparent','iv_load_policy':3,'rel': 0,'loop':1,'playlist': '{{videoId}}','iv_load_policy':3,'fs':0},
-      events : {
-     	 	'onReady' : pkOnPlayerReady,
-         'onStateChange' : pkOnPlayerStateChange
-      }
-  	});
-}
-
-function pkOnPlayerStateChange(e) {
-  	var frm = $(e.target.getIframe());
-  	if (e.data === YT.PlayerState.ENDED) {
-      if ('player' === frm.attr('id')) {
-          player.playVideo();
-      }
-  	}
-  	if (e.data === YT.PlayerState.BUFFERING) {
-      if ('player' === frm.attr('id')) {
-         e.target.setPlaybackQuality('hd720');
-		}
-  	}
-}
-function pkOnPlayerReady(e) {
-	player.mute();
- 	e.target.setPlaybackQuality('hd720');
- 	  console.log(e.target);
-}
-
-
-
-
-
-</script>

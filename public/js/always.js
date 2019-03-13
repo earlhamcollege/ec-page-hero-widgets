@@ -4,7 +4,7 @@ apos.define('ec-page-hero-widgets', {
      self.play = function($widget, data, options) {
         // Loads the YouTube IFrame API JavaScript code.
 var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
+tag.src = "//www.youtube.com/iframe_api";
 // Inserts YouTube JS code into the page.
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
@@ -38,7 +38,7 @@ var pkEnableYoutube = function() {
      var img = new Image();
      img.onload = function() { return deferred.resolve(); };
      img.onerror = function() { return deferred.reject(); };
-     img.src = "https://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif?"+ new Date().getTime();
+     img.src = "//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif?"+ new Date().getTime();
      return deferred.promise();
 };
 
