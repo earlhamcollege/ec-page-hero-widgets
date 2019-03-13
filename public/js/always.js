@@ -69,7 +69,15 @@ jQuery(function($){
 
 
       return false;
+
+      console.log(data.fontSize);
+        $widget.find('[data-ec-page-hero] [data-loading]').fadeIn().attr('data-loading', 'data-loaded');
+        $widget.find('[data-ec-page-hero] h1').css('font-size', data.fontSize+'vw');
     };
+
+
+
+
   },
   construct: function(self, options) {
    }

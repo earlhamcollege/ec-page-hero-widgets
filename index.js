@@ -148,8 +148,46 @@ module.exports = {
   						def: 400
 				    }
 				  ]
+			},
+			{
+				name: 'fontType',
+				label: 'Font Style',
+				type: 'select',
+				choices: [
+
+					{
+						label: '1',
+						value: '1'
+					},
+					{
+						label: '2',
+						value: '2'
+					},
+					{
+						label: '3',
+						value: '3'
+					}
+				]
+			},
+			{
+		      name: 'fontSize',
+		      label: 'Overlay Font Size',
+				type: 'range',
+				min: 5,
+					max: 50,
+					step: 5,
+					def: 12
+			},
+			{
+		      name: 'textOpacity',
+		      label: 'Text Opacity',
+				type: 'range',
+				min: 0.1,
+				max: 1,
+				step: 0.1,
+				def: 0.5
 			}
-    	].concat(options.addFields || [])
+    	].concat(options.addFields || []),
     	options.arrangeFields = [
 			 {
 		      name:'configuration',
@@ -164,7 +202,7 @@ module.exports = {
 		    {
 		    	name: 'overlay',
 		    	label: 'Overlay',
-		    	fields: ['selectOverlay','customTitle','imageOverlay','backgroundSize','overlaySize']
+		    	fields: ['selectOverlay','customTitle','imageOverlay','backgroundSize','overlaySize', 'fontType', 'fontSize','textOpacity']
 		    }
     	].concat(options.arrangeFields || [])
 	},
