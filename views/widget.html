@@ -60,7 +60,15 @@ data-slick='{"dots": {{dots | dump}},"speed": "{{speed}}"}'>
 
 		{% if hero.type == "apostrophe-video" %}
 		<div class="slide">
-			<section id="page-banner" class="bg-image" style="background-image: url('http://i.ytimg.com/vi/{{videoId}}/maxresdefault.jpg');">
+			<section id="page-banner" class="bg-image" 
+				{% if data.widget.videoImage %}
+				{{hero|json}}
+					style="background-image: url({{ apos.attachments.url(hero.videoImage, { size: 'full' })}});
+				}
+				}
+				{% else %}
+				style="background-image: url('http://i.ytimg.com/vi/{{videoId}}/maxresdefault.jpg');"
+				{%endif%}>
 		      <div class="video_wrap" style="display:none"><div id="player"></div></div>
     		</section>
 		</div>
