@@ -47,6 +47,17 @@ module.exports = {
 				]
 			},
 			{
+				name: 'videoImage',
+				label: 'Video Thumbnail',
+				type: 'singleton',
+				widgetType: 'apostrophe-images',
+				options: {
+					minSize: [ 600, 300 ],
+					focalPoint: true,
+					limit: 1
+				}
+			},
+			{
 				name: 'imageOverlay',
 				label: 'Image Overlay',
 				type: 'attachment',
@@ -80,7 +91,7 @@ module.exports = {
 						label: 'Video',
 						value: 'video',
 						showFields: [
-        					'heroVideo'
+        					'heroVideo', 'videoImage'
       					]
 					}
 
@@ -197,7 +208,7 @@ module.exports = {
 		    {
 		      name:'content',
 		      label:'Content',
-		      fields: ['heroImages','heroVideo']
+		      fields: ['heroImages','heroVideo', 'videoImage']
 		    },
 		    {
 		    	name: 'overlay',
