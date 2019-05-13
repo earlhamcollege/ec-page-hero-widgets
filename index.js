@@ -223,10 +223,10 @@ module.exports = {
 		
 		self.pushAssets = function() {
 			superPushAssets();
-			self.pushAsset('stylesheet', 'slick', 'always');
+			self.pushAsset('stylesheet', 'slick/slick', 'always');
 			self.pushAsset('stylesheet', 'always', 'always');
 			self.pushAsset('stylesheet', 'custom', 'always');
-			self.pushAsset('script', 'slick', 'always');
+			self.pushAsset('script', 'slick/slick.min', 'always');
 			self.pushAsset('script', 'always', 'always');
 		}
 	}
