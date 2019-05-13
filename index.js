@@ -224,7 +224,6 @@ module.exports = {
 		self.pushAssets = function() {
 			superPushAssets();
 			self.pushAsset('stylesheet', 'slick', 'always');
-			self.pushAsset('stylesheet', 'slick-theme', 'always');
 			self.pushAsset('stylesheet', 'always', 'always');
 			self.pushAsset('stylesheet', 'custom', 'always');
 			self.pushAsset('script', 'slick', 'always');
