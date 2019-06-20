@@ -23,60 +23,55 @@
 {% else %}
 	{% set speed = data.widget.imageConfig.speed %}
 {% endif %}
-<div data-ec-page-hero data-ec-page-hero-{{data.widget._id}} data-background-color='#000' 
-data-slick='{"dots": {{dots | dump}},"speed": "{{speed}}"}' data-loading>
-	<div class="overlay">			
-		        <div class="inner">
-		        	{% if data.widget.selectOverlay == 'page-title' %}		
-		            <h1>{{data.page.title|upper}}</h1>
-		            {% endif %}
-		            {% if data.widget.selectOverlay == 'custom-title' %}		
-		            <h1>{{data.widget.customTitle | upper}}</h1>
-		            {% endif %}
 
-					{% if data.widget.selectOverlay == "image-overlay" %}
-						
-								<div class="focal-point" style="background-image: url({{ apos.attachments.url(data.widget.imageOverlay, { size: 'full' }) }}); background-position: center; background-repeat: no-repeat; 
-							{% if data.widget.backgroundSize == "percent" %}
-									background-size: {{data.widget.overlaySize + '%'}};
-							{% else %}
-									background-size: {{data.widget.backgroundSize}};
-							{% endif %}"></div>
-				  {% endif %}
-							        </div>
-							    </div>
+
+<div data-ec-page-hero data-ec-page-hero-{{data.widget._id}} data-background-color='#000' 
+data-slick='{"dots": {{dots | dump}},"speed": "{{speed}}"}' data-videoid="{{videoId}}">
+	{% if data.widget.selectMedia == 'video'%}
+		<video data-ec-page-hero-{{data.widget._id}} data-loading loop muted autoplay playsinline id="video"></video>
+	}
+	<pre></pre>
+	{% endif %}
 
 	{% for hero in heroItems %}
+			{% if hero.type == "attachment" %}
+				<div class="slide" data-loading >
+					<div class="focal-point" style="{% if apos.attachments.hasFocalPoint(hero) %}
+							      background-position: {{ apos.attachments.focalPointToBackgroundPosition(hero) }};
+							    {% endif %}
+							    background-image: url({{ apos.attachments.url(hero, { size: 'full' }) }})">
+					</div>
+				</div>
+			{% endif %}
 
-		{% if hero.type == "attachment" %}
-		<div class="slide">
-				
-								<div class="focal-point" style="{% if apos.attachments.hasFocalPoint(hero) %}
-					      background-position: {{ apos.attachments.focalPointToBackgroundPosition(hero) }};
-					    {%- endif -%}
-					    background-image: url({{ apos.attachments.url(hero, { size: 'full' }) }})"></div>
-							</div>
-							{% endif %}
+			{% if hero.type == "apostrophe-video" %}
+				<div class="slide" data-loading >
+					<section id="page-banner" class="bg-image" style="background-image: url('//i.ytimg.com/vi/{{videoId}}/maxresdefault.jpg');">
+				      <div class="video_wrap" style="display:none"><div id="player"></div></div>
+		    		</section>
+				</div>
+			{% endif %}
+		{% endfor %}
+			<div class="overlay" data-loading >			
+		<div class="inner">
+			{% if data.widget.selectOverlay == 'page-title' %}		
+				<h1>{{data.page.title|upper}}</h1>
+			{% endif %}
+			{% if data.widget.selectOverlay == 'custom-title' %}		
+				<h1>{{data.widget.customTitle | upper}}</h1>
+			{% endif %}
 
-		{% if hero.type == "apostrophe-video" %}
-		<div class="slide">
-<<<<<<< HEAD
-			<section id="page-banner" class="bg-image" 
-				{% if data.widget.videoImage %}
-				{{hero|json}}
-					style="background-image: url({{ apos.attachments.url(hero.videoImage, { size: 'full' })}});
-				}
-				}
-				{% else %}
-				style="background-image: url('http://i.ytimg.com/vi/{{videoId}}/maxresdefault.jpg');"
-				{%endif%}>
-=======
-			<section id="page-banner" class="bg-image" style="background-image: url('//i.ytimg.com/vi/{{videoId}}/maxresdefault.jpg');">
->>>>>>> master
-		      <div class="video_wrap" style="display:none"><div id="player"></div></div>
-    		</section>
+			{% if data.widget.selectOverlay == 'image-overlay' %}
+				<div class="focal-point" style="background-image: url({{ apos.attachments.url(data.widget.imageOverlay, { size: 'full' }) }}); background-position: center; background-repeat: no-repeat; 
+					{% if data.widget.backgroundSize == 'percent' %}
+							background-size: {{data.widget.overlaySize + '%'}};
+					{% else %}
+							background-size: {{data.widget.backgroundSize}};
+					{% endif %}"></div>
+			{% endif %}
 		</div>
-		{% endif %}
-	{% endfor %}
+
+		
+	</div>
 </div>
 
