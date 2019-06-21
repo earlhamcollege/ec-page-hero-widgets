@@ -76,6 +76,7 @@ function parse_str(str) {
 
        
         var instance = data._id;
+        var videoEl = $widget.find("[data-ec-page-hero-"+instance+"] #video");
 
         // Get configuration from configuations passed to ec-gallery
 
@@ -90,6 +91,14 @@ function parse_str(str) {
         });
        $widget.find('[data-ec-page-hero] [data-loading]').fadeIn().attr('data-loading', 'data-loaded');
                 $widget.find('[data-ec-page-hero] h1').css('font-size', data.fontSize+'vw');
+
+                if(videoEl.data('bottom')==0){
+                  videoEl.css('top',videoEl.data('top')+'px');
+                }
+                if(videoEl.data('top')==0){
+                  videoEl.css('bottom',videoEl.data('bottom')+'px');
+                }
+                
     };
    }
 });

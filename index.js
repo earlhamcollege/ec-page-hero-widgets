@@ -47,17 +47,6 @@ module.exports = {
 				]
 			},
 			{
-				name: 'videoImage',
-				label: 'Video Thumbnail',
-				type: 'singleton',
-				widgetType: 'apostrophe-images',
-				options: {
-					minSize: [ 600, 300 ],
-					focalPoint: true,
-					limit: 1
-				}
-			},
-			{
 				name: 'imageOverlay',
 				label: 'Image Overlay',
 				type: 'attachment',
@@ -91,7 +80,7 @@ module.exports = {
 						label: 'Video',
 						value: 'video',
 						showFields: [
-        					'heroVideo', 'videoImage'
+        					'heroVideo', 'videoImage', 'verticalAlign'
       					]
 					}
 
@@ -103,6 +92,10 @@ module.exports = {
 				type: 'select',
 				label: 'Choose Type of Overlay',
 				choices: [
+					{
+						label: 'No Overlay',
+						value: 'none'
+					},
 					{
 						label: 'Page Title',
 						value: 'page-title'
@@ -119,6 +112,33 @@ module.exports = {
 					}
 				],
 				def: 'page-title'
+			},
+			{
+				name: 'verticalAlign',
+				type: 'object',
+				schema: [
+					{
+				      name: 'top',
+				      label: 'Top Position (px)',
+						type: 'range',
+						min: 0,
+						max: 100,
+						step: 1,
+						def: 10,
+						help: 'Set top or bottom to a value greater than 0'
+				    },
+				    {
+				    	name: 'bottom',
+				    	label: 'Bottom Position (px)',
+						type: 'range',
+						min: 0,
+						max: 100,
+						step: 1,
+						def: 0,
+						help: 'Set top or bottom to a value greater than 0'
+				    }
+				]
+
 			},
 			{
 				name: 'imageConfig',
@@ -208,7 +228,7 @@ module.exports = {
 		    {
 		      name:'content',
 		      label:'Content',
-		      fields: ['heroImages','heroVideo', 'videoImage']
+		      fields: ['heroImages','heroVideo', 'verticalAlign']
 		    },
 		    {
 		    	name: 'overlay',

@@ -1,3 +1,7 @@
+### 1.0.19
+
+Removed Video Thumbnail since nothing shows until video is shown
+
 ### 1.0.18
 
 Refactored Youtube Embeding
