@@ -1,3 +1,7 @@
+### 1.0.21
+
+Enable Color Picker to display color pallets [https://github.com/apostrophecms/apostrophe/pull/1958]
+
 ### 1.0.20
 
 Added Background Opacity

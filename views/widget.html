@@ -25,7 +25,7 @@
 {% endif %}
 
 
-<div data-ec-page-hero data-ec-page-hero-{{data.widget._id}} data-background-color='#000' 
+<div data-ec-page-hero data-ec-page-hero-{{data.widget._id}} data-background-color='{{data.widget.bgColor}}' 
 data-slick='{"dots": {{dots | dump}},"speed": "{{speed}}"}' data-videoid="{{videoId}}">
 	{% if data.widget.selectMedia == 'video'%}
 		<video data-ec-page-hero-{{data.widget._id}} data-loading loop muted autoplay playsinline id="video" data-top='{{ data.widget.verticalAlign.top }}'  data-bottom='{{ data.widget.verticalAlign.bottom }}'></video>

@@ -1,6 +1,6 @@
 {
   "name": "ec-page-hero-widgets",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "Apostrophe Widget that makes hero content for each page",
   "main": "index.js",
   "scripts": {

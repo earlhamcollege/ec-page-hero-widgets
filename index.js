@@ -219,6 +219,18 @@ module.exports = {
 				def: 0.5
 			},
 			{
+		      name: 'bgColor',
+		      label: 'Background Color',
+				type: 'color',
+				spectrumOptions: {
+					showPalette: true,
+				    palette: [
+				        ['black', 'white', 'blanchedalmond'],
+				        ['rgb(255, 128, 0);', 'hsv 100 70 50', 'lightyellow']
+				    ]
+				}
+			},
+			{
 		      name: 'backgroundOpacity',
 		      label: 'Background Opacity',
 				type: 'range',

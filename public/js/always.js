@@ -91,8 +91,10 @@ function parse_str(str) {
         });
        $widget.find('[data-ec-page-hero] [data-loading]').fadeIn().attr('data-loading', 'data-loaded');
                 $widget.find('[data-ec-page-hero] h1').css('font-size', data.fontSize+'vw');
-                
+
                  $widget.find('[data-ec-page-hero] h1').css('opacity', data.textOpacity);
+
+                 $widget.find('[data-ec-page-hero] div.slick-list').css('background-color', $widget.find('[data-ec-page-hero]').data('background-color'));
 
                 if(videoEl.data('bottom')==0){
                   videoEl.css('top',videoEl.data('top')+'px');
