@@ -39,7 +39,7 @@ data-slick='{"dots": {{dots | dump}},"speed": "{{speed}}"}' data-videoid="{{vide
 					<div class="focal-point" style="{% if apos.attachments.hasFocalPoint(hero) %}
 							      background-position: {{ apos.attachments.focalPointToBackgroundPosition(hero) }};
 							    {% endif %}
-							    background-image: url({{ apos.attachments.url(hero, { size: 'full' }) }})">
+							    background-image: url({{ apos.attachments.url(hero, { size: 'full' }) }});opacity: {{data.widget.backgroundOpacity or 1}}">
 					</div>
 				</div>
 			{% endif %}

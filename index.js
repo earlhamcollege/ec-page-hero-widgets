@@ -73,7 +73,7 @@ module.exports = {
 						label: 'Image',
 						value: 'images',
 						showFields: [
-        					'heroImages','imageConfig'
+        					'heroImages','imageConfig','backgroundOpacity'
       					]
 					},
 					{
@@ -217,13 +217,22 @@ module.exports = {
 				max: 1,
 				step: 0.1,
 				def: 0.5
+			},
+			{
+		      name: 'backgroundOpacity',
+		      label: 'Background Opacity',
+				type: 'range',
+				min: 0.1,
+				max: 1,
+				step: 0.1,
+				def: 1
 			}
     	].concat(options.addFields || []),
     	options.arrangeFields = [
 			 {
 		      name:'configuration',
 		      label:'Configuration',
-		      fields: ['selectMedia','config', 'imageConfig']
+		      fields: ['selectMedia','config', 'imageConfig', 'backgroundOpacity']
 		    },
 		    {
 		      name:'content',
