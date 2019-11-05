@@ -73,14 +73,14 @@ module.exports = {
 						label: 'Image',
 						value: 'images',
 						showFields: [
-        					'heroImages','imageConfig','backgroundOpacity'
+        					'heroImages','imageConfig','backgroundOpacity', 'bgColor'
       					]
 					},
 					{
 						label: 'Video',
 						value: 'video',
 						showFields: [
-        					'heroVideo', 'videoImage', 'verticalAlign'
+        					'heroVideo', 'verticalAlign'
       					]
 					}
 
@@ -244,7 +244,7 @@ module.exports = {
 			 {
 		      name:'configuration',
 		      label:'Configuration',
-		      fields: ['selectMedia','config', 'imageConfig', 'backgroundOpacity']
+		      fields: ['selectMedia','config', 'imageConfig', 'bgColor','backgroundOpacity']
 		    },
 		    {
 		      name:'content',
